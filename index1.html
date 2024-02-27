@@ -3,7 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Aprendiendo Flexbox</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      .container {
+        background: #333;
+        height: 30vh;
+
+        display: flex;
+        /* flexdirection:row-> default en linea */
+        /* flexdirection:row-reverse-> en linea de derecha izquierda los elementos de dentro el 1 derecha el 2 medio y el 3 izquierda */
+        /* flexdirection: column-reverse-> Los pone en columna del 1 al 3  */
+        /* flexdirection:column-reverse-> Los pone en columna de abajo arriba  de su contenedor*/
+        flex-direction: row;
+        /* flex-wrap: nowrap-> no los envuelvas quiero a todos mis elementos hijos esten en una "sola" linea o columna, si excede los espacios por falta de resolución crea un scroll horizontal en el caso de ser filas, si por ejemplo en este caso los elmenentos hijos tienen una medida de anchura width  y choca con el ancho que por defecto tendria segun row no tiene efecto  dicha anchura en el momento de conflicto */
+        /* Flex-wrap: wrap-> Significa que va a envolver, va a considerar el tamaño de la caja padre, el de sus hijos y si no logra meterlos en una sola linea o columna pasan a la siguiente, hay que tener en cuenta el modelo de caja porque en este caso al contar de dentro hacia afuera el modelo de caja al ser un 20% el tamaño de la clase de sus elementos hijos solo caben 4 y no 5 por su borde, para cambiar esto hay que hacer la caja de fuera a dentro el famoso reset el box-sizing de content-box a boder-box,  */
+        /* Cuando ademas de tener la propiedad de no-wrap combinada con column puede salirse del contenedor padre los contendores hijos y no tiene en cuenta la height de los contendores hijos si sobrepasan lo que ocupa el contenedor padre */
+        /* Tambien tenemos la opcion de wrap-reverse que es envolverlos en el orden inverso */
+        flex-wrap: wrap-reverse;
+        /* Flex-flow : primer valor direccion segundo valor envoltorio  es un shortcut*/
+        flex-flow: column wrap;
+      }
+      .item {
+        border: medium solid #999;
+        width: 20%;
+        height: 20%;
+        background: #666;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <section class="container">
+      <article class="item">Flex item 1</article>
+      <article class="item">Flex item 2</article>
+      <article class="item">Flex item 3</article>
+    </section>
+    <br />
+    <br />
+    <section class="container">
+      <article class="item">Flex item 1</article>
+      <article class="item">Flex item 2</article>
+      <article class="item">Flex item 3</article>
+    </section>
+    <br />
+    <br />
+    <section class="container">
+      <article class="item">Item 1</article>
+      <article class="item">Item 2</article>
+      <article class="item">Item 3</article>
+      <article class="item">Item 4</article>
+      <article class="item">Item 5</article>
+      <article class="item">Item 6</article>
+      <article class="item">Item 7</article>
+      <article class="item">Item 8</article>
+      <article class="item">Item 9</article>
+      <article class="item">Item 10</article>
+      <article class="item">Item 11</article>
+      <article class="item">Item 12</article>
+      <article class="item">Item 13</article>
+      <article class="item">Item 14</article>
+      <article class="item">Item 15</article>
+      <article class="item">Item 16</article>
+      <article class="item">Item 17</article>
+      <article class="item">Item 18</article>
+      <article class="item">Item 19</article>
+    </section>
+  </body>
 </html>
