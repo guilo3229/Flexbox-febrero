@@ -26,7 +26,18 @@
         /* Tambien tenemos la opcion de wrap-reverse que es envolverlos en el orden inverso */
         flex-wrap: wrap-reverse;
         /* Flex-flow : primer valor direccion segundo valor envoltorio  es un shortcut*/
-        flex-flow: column wrap;
+        flex-flow: row wrap;
+        /* justify-content:display:
+        flex-start-> los alinea al comienzo
+        center -> los alinea en el  centro
+        flex-end -> los alinea en la parte derecha o al final si es column abajo 
+        space-between -> ignora los bordes de las orillas del contendor padre y los espacios sobrantes los divide entre los elementos internos hijos
+        space-around-> considerando las orillas
+        space-evenly-> mismo valor a las orillas que a los espacios internos ;
+        justify-content define la alineacion en el eje principal!! depende de flex-direction 
+        todo esto de la alineacion se da en las filas o columnas respecto al espacio sobrante si no tiene pues no se ve
+        */
+        justify-content: space-evenly;
       }
       .item {
         border: medium solid #999;
