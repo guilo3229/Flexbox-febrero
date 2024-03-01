@@ -26,25 +26,38 @@
         /* Tambien tenemos la opcion de wrap-reverse que es envolverlos en el orden inverso */
         flex-wrap: wrap-reverse;
         /* Flex-flow : primer valor direccion segundo valor envoltorio  es un shortcut*/
-        flex-flow: row wrap;
+        flex-flow: column wrap;
         /* justify-content:display:
         flex-start-> los alinea al comienzo
         center -> los alinea en el  centro
-        flex-end -> los alinea en la parte derecha o al final si es column abajo 
+        flex-end -> los alinea en la parte derecha o al final si es column abajo
         space-between -> ignora los bordes de las orillas del contendor padre y los espacios sobrantes los divide entre los elementos internos hijos
         space-around-> considerando las orillas
         space-evenly-> mismo valor a las orillas que a los espacios internos ;
-        justify-content define la alineacion en el eje principal!! depende de flex-direction 
+        justify-content define la alineacion en el eje principal!! depende de flex-direction
         todo esto de la alineacion se da en las filas o columnas respecto al espacio sobrante si no tiene pues no se ve
         */
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        /* Align-tems: stretch que los hijos en la direccion que no es la principal se van a estirar al tamaño del contendor padre,siempre y cuando estos hijos no tengan definidos valores de altura o anchura dependiendo de cual es su eje principal, al contrario  que con wrap y no-wrap que prevalecian por delante del width y el height de los hijos en este caso el width y el height de los hijos prevalecen sobre align-items
+        stretch| flex-start|flex-end|center|baseline->Alinea todas las letras de las cajas en esa linea.
+        align-item define la alineacion de los hijos en el eje transversal(cross axis), dentro de cada linea.*/
+        align-items: stretch;
+        /* Para alinear los hijos como un todo y no por cada linea podemos usar align-content.
+        Define la alineacion de los hijos en el eje transversal (cross axid), NO funciona cuando los hijos están en una sóla línea con nowrap no funcionara*/
+        /* flex-start | flex-end | center | space-between | space-around | space-evenly, a veces se supera a align item y lo sustituye, align item  funciona con rap y no wrap, pero ambas funcionan con wrap teniendo mayor especificacion align-content, exceptuando de momento cuando align-content tiene stretch entonces se unen los efectos*/
+        align-content: stretch;
       }
       .item {
         border: medium solid #999;
-        width: 20%;
-        height: 20%;
+        /* Hay que tener en cuenta que cuando quremos usar el stretch que es estirar no hay que poner height cuando es row o width cuando es columna */
+        /* width: 20%; */
+        /* height: 20%; */
         background: #666;
       }
+      /* .item:nth-child(2),
+      .item:nth-child(17) {
+        font-size: 250%;
+      } */
     </style>
   </head>
   <body>
