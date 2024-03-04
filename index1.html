@@ -13,7 +13,7 @@
       .container {
         background: #333;
         height: 30vh;
-        width: 1000px;
+        width: 100%;
         display: flex;
         /* flexdirection:row-> default en linea */
         /* flexdirection:row-reverse-> en linea de derecha izquierda los elementos de dentro el 1 derecha el 2 medio y el 3 izquierda */
@@ -50,10 +50,10 @@
       .item {
         border: medium solid #999;
         /* Hay que tener en cuenta que cuando quremos usar el stretch que es estirar no hay que poner height cuando es row o width cuando es columna */
-        width: 100px;
+        /* width: 100px; */
         /* height: 20%; */
         background: #666;
-        flex-grow: 1;
+        flex-grow: 0;
         /* Flex-grow-> Cuando la caja flexbox tenga espacio sobrante, es la habilidad o el factor de crecer, valor poe defecto es 0, No se aceptan valores negativos */
         flex-shrink: 1;
         /* Flex-shrink->Cuando la caja flexbox No tenga espacio sobrante, es la habilidad o el factor de encogerse,el valor por defecto es 1, No se aceptan valores negativos */
@@ -61,6 +61,7 @@
       }
       .item:nth-child(2) {
         /* flex-grow: 3; */
+        flex-shrink: 2;
       }
       .item:nth-child(3) {
         /* flex-grow: 2; */
@@ -73,9 +74,9 @@
   </head>
   <body>
     <section class="container">
-      <article class="item">Flex item 1</article>
-      <article class="item">Flex item 2</article>
-      <article class="item">Flex item 3</article>
+      <article class="item">Flex Item 1</article>
+      <article class="item">Flex Item 2</article>
+      <article class="item">Flex Item 3</article>
     </section>
     <br />
     <br />
