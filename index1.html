@@ -38,7 +38,7 @@
         todo esto de la alineacion se da en las filas o columnas respecto al espacio sobrante si no tiene pues no se ve
         */
         justify-content: flex-start;
-        /* Align-tems: stretch que los hijos en la direccion que no es la principal se van a estirar al tamaño del contendor padre,siempre y cuando estos hijos no tengan definidos valores de altura o anchura dependiendo de cual es su eje principal, al contrario  que con wrap y no-wrap que prevalecian por delante del width y el height de los hijos en este caso el width y el height de los hijos prevalecen sobre align-items
+        /* Align-tems: stretch que los hijos en la direccion que no es la principal se van a estirar al tamaño del contendor padre,siempre y cuando estos hijos no tengan definidos valores de altura o anchura dependiendo de cual es su eje principal, al contrario  que con wrap y nowrap que prevalecian por delante del width y el height de los hijos en este caso el width y el height de los hijos prevalecen sobre align-items
         stretch| flex-start|flex-end|center|baseline->Alinea todas las letras de las cajas en esa linea.
         align-item define la alineacion de los hijos en el eje transversal(cross axis), dentro de cada linea.*/
         align-items: stretch;
@@ -68,13 +68,25 @@
 
         /* flex: Tenemos una propiedad de shorhand que hace referencia a flex grow-flex shrink y flex-basis */
         flex: 0 1 150px;
+
+        /* order Representa el orden que tendran los elementos hijos en la caja flexbox 
+        El valor por defecto0
+        Se aceptan valores positivos y negativos
+        Un valor menor siempre irá antes que un valor mayor
+        Tiene encuenta el posiciionamiento del flexbox por ejemplo si es row reverse el de menor valor estara en la derecha y en row normal en la izquierda lo mismo con column y column-reverse de arriba abajo y de abajo arriba */
+        order: 0;
+        /* Align-self: Sobreescribe el valor de la propiedad align-items solo para el elemento hijo especificado;
+        stretch | flex-start | flex-end | center | baseline */
       }
       .item:nth-child(2) {
         /* flex-grow: 3; */
         /* flex-shrink: 2; */
+        order: 1;
       }
       .item:nth-child(3) {
         /* flex-grow: 2; */
+
+        /* align-self: flex-end; */
       }
       /* .item:nth-child(2),
       .item:nth-child(17) {
@@ -87,6 +99,8 @@
       <article class="item">Flex Item 1</article>
       <article class="item">Flex Item 2</article>
       <article class="item">Flex Item 3</article>
+      <article class="item">Flex Item 4</article>
+      <article class="item">Flex Item 5</article>
     </section>
     <br />
     <br />
