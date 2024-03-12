@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplos Prácticos Flexbox</title>
+    <style>
+          *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      main{
+        flex-grow: 1;
+      }
+
+      .titulares {  
+        padding: 1rem;
+        background-color: #222;
+        color: #EEE;
+      }
+      .menu ul{
+        list-style-type: none;
+      }
+      .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-image{
+        min-height: 100vh;
+        /* min-width: 100%; */
+        background-image: url("https://picsum.photos/1280/720");
+        
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #FFF;
+
+      }
+    
+      .hero-image div{
+        min-height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+          background-color: rgba(0, 0, 0, .75);
+      }
+      .hero-image h1{
+        font-size: 5vw;
+      }
+      @media screen and (min-width:1024px){
+        .header{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .menu ul{
+          display: flex;
+        }
+        .menu li{
+          padding: .5rem;
+        }
+      }
+    </style>
+  <body>
+    <header class="titulares header">
+      <div class="logo">Logo</div>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">Seccion 1</a></li>
+          <li><a href="#">Seccion 2</a></li>
+          <li><a href="#">Seccion 3</a></li>
+          <li><a href="#">Seccion 4</a></li>
+          <li><a href="#">Seccion 5</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main >
+        
+        <article class="hero-image">
+          <div>
+            <h1>Flexbox is fucking COOL</h1>
+          </div>
+        </article>
+    </main>
+ 
+    <footer class="titulares">
+        <h2>Sticky Footer</h2>
+    </footer>
+   
+  </body>
+</html>
