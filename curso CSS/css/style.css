@@ -1,0 +1,157 @@
+/* Regla CSS consta de 2 partes:
+ 1) EL selector
+ 2) Bloque de declaraciones:
+ atributo: valor;
+ Si el atributo tiene mas de 2 palabras: atributo-de-mas-dos-palabras: otro-valor; */
+@import url(otra-hoja.css);
+/* @import mala practica porque al recargar una pagina, bloquea la instruccion hasta que no obtine todo el contenido toda esa hoja parando la lectura HTML
+Son bloqueantes porque on bloqueantes a la hora de que el navegador lee esta instrucción exceptuando con SAS eso es troa cosa */
+h1 {
+  color: orangered;
+  background-color: black;
+}
+
+/* 
+Links de referencia y documentacion
+  - https://es.wikipedia.org/wiki/Hoja_de...
+  - https://www.w3.org/html/logo/
+  - https://www.w3.org/standards/webdesig...
+  - https://www.w3.org/TR/css-2020/
+  - https://developer.mozilla.org/es/docs...
+🔵 CSS Reference - https://cssreference.io/
+🔵 Can I Use - https://caniuse.com/
+🔵 Code Guide - https://codeguide.co/
+*/
+
+/* Selectores Básicos:
+  1)Etiquetas - son elementos html
+  2)Identificadores - atributos id - #
+  3)clases - atributo class - .
+
+*/
+
+p {
+  color: midnightblue;
+}
+
+/* Dar estilos con ID es un anti-patron, porque es como una clave,normalmente no se usa solo sirve para solo un solo identificador, se usa mas para interactividades con Javascript */
+#parrafo-dos {
+  background-color: skyblue;
+}
+
+/* Dar estilos con clases nos permite reutilizar nuestro codigo CSS, el orden de definicion de nuestras clses no importa en principio pero es mejor ordenarlas en orden alfabetico para tener una metodología */
+
+.bg-skyblue {
+  background-color: skyblue;
+}
+
+.bg-steelblue {
+  background-color: steelblue;
+}
+.text-20 {
+  font-size: 20px;
+}
+.text-32 {
+  font-size: 32px;
+}
+
+.text-white {
+  color: white;
+}
+/* El simbolo > apica solo para hijos directos a todos parece ser */
+.hijos-directos > li {
+  background-color: thistle;
+}
+/* El espacio hace referencia a todos los hijos descendientes sin importar en el orden o el nivel que esten de ese elemento que esta tras eel espacio */
+.hijos-descendientes b {
+  background-color: thistle;
+}
+
+/* Para el selector de hermanos en general se usa la virguilla altGR+4 y espacio ~, aplicara los estilos a los hermanos que estan por debajo sin contarse a si mismo/os  */
+.hermanos-general ~ li {
+  background-color: thistle;
+}
+/* Para el selector de hermanos adyacentes se usa la suma, aplicara estilos solamente al hermano siguiente que este por debajo sin contarse a el mismo.
+Tanto como para el hermano en general como el adyacente si el tipo de hermano no coincide con el que el tipo indicado(por ejemplo en estos casos li) no se pasara al siguiente buscando este tipo es decir no pasara absolutamente nada si hay otro tipo de hermano intercalado y no por lo tanto no funcionara. */
+.hermanos-adyacentes + li {
+  background-color: thistle;
+}
+
+/* Selectores atributos */
+
+.selectores-atributos a[href] {
+  color: orangered;
+}
+.selectores-atributos a[target="_blank"] {
+  font-weight: bold;
+}
+/* Para los selectores de atributos si usas el * antes del igual , lo que este entrecomillado sera que tenga dicha palabra en alguna parte, no debe tener mas caracteres ni estar dividida */
+
+/* El comodin del asterisco aplica el estilo si contiene la palabra en cuestion */
+.selectores-atributos a[href*="jonmircha"] {
+  font-size: 23px;
+}
+/* El ^ es que se va a aplicar siempre y cuando se empiece con dicha palabra */
+.selectores-atributos a[href^="http:"] {
+  text-decoration: none;
+}
+/* El $ es que se va a aplicar el estilo si contiene el texto en cuestion al final*/
+.selectores-atributos a[href$=".com/"] {
+  background-color: black;
+}
+/* El comodin del ~ aplica el estilo si contiene   el texto en cuestion en una lista separada por espacios*/
+.selectores-atributos a[class~="cursos"] {
+  background-color: midnightblue;
+}
+/* El comodin | aplica el estilo si contiene el texto en cuestion en una lista separada por espacios y que despues del texto en cuestion venga un guión medio - obligado */
+.selectores-atributos a[class|="menu"] {
+  font-style: italic;
+}
+
+/* Selector universal (*) puede hacerse en el contexto si va despues de otro selector como de clase etc */
+
+* {
+  font-family: sans-serif;
+}
+
+.selector-universal * {
+  font-size: 24px;
+}
+
+/* 
+Pseudoclases - Dan estilos dependiendo del contexto, posición o estado del elemento.
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes
+*/
+/* En este caso :required seria un estado requerido y recordar el * es para todos que esten dentro del form */
+.form-pseudoclases *:required {
+  border-color: yellow;
+}
+.form-pseudoclases *:valid {
+  border-color: green;
+}
+.form-pseudoclases *:invalid {
+  border-color: red;
+}
+
+.form-pseudoclases *:focus {
+  background-color: skyblue;
+}
+.form-pseudoclases *:disabled {
+  background-color: pink;
+}
+.menu-pseudoclases a:visited {
+  color: olive;
+}
+/* Para que no afecte por cascada de posicion el estado hover deberia estar al final porque al ser un estado interactivo.
+Importa link->visited->hover */
+.menu-pseudoclases a:hover {
+  color: orange;
+}
+
+.p-pseudoclases:hover {
+  font-size: 20px;
+}
+/* Se puede usar para cambiar cosas con el target, sirve para hacer cosas moviles sin usar javascript por ejemplo */
+#temario-css:target {
+  background-color: lightgreen;
+}
