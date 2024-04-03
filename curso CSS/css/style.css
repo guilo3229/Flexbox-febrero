@@ -155,3 +155,161 @@ Importa link->visited->hover */
 #temario-css:target {
   background-color: lightgreen;
 }
+
+.lista-pseudoclases li:first-child {
+  color: green;
+}
+.lista-pseudoclases li:last-child {
+  color: violet;
+}
+.lista-pseudoclases li:nth-child(4n) {
+  font-size: 20px;
+}
+/* odd para impares even pares, aveces no funciona bien y funciona al reves ojo!! */
+.lista-pseudoclases li:nth-child(even) {
+  background-color: orange;
+}
+.lista-pseudoclases li:nth-child(odd) {
+  background-color: yellow;
+}
+/* Si el primer hijo no es un p y en nuestro caso es una header no funcionara ya que esta no es un  p, para solucionar esto hay que poner first-of-type entonces buscara el primer hijo de dicha "clase" */
+.articulo-pseudoclases p:first-of-type {
+  background-color: pink;
+}
+.articulo-pseudoclases p:last-of-type {
+  background-color: violet;
+}
+.articulo-pseudoclases p:nth-of-type(2) {
+  background-color: fuchsia;
+}
+/* Este ultimo es de negacion dice todos los hijos menos los que esten dentro del parentesis */
+.articulo-pseudoclases *:not(p, footer) {
+  background-color: beige;
+}
+
+/* Pseudoelementos - Dan estilos a partes específicas de un elmento, se usa el :: para diferenciarlos de las pseudoclases 
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudoelementos
+*/
+
+.saga-geminis::before {
+  content: " 🤼‍♂️ ";
+}
+.saga-geminis::after {
+  content: " 👾 ";
+}
+
+.saga-precio::before {
+  content: " $ ";
+  font-weight: bold;
+}
+.saga-precio::after {
+  content: " USD ";
+  font-weight: bold;
+}
+
+.p-pseudoelementos::first-letter {
+  font-weight: bold;
+  font-size: 32px;
+}
+.p-pseudoelementos::first-line {
+  color: coral;
+}
+.p-pseudoelementos::selection {
+  color: greenyellow;
+  background-color: black;
+}
+
+.input-pseudoelementos::placeholder {
+  background-color: greenyellow;
+}
+
+/* Agrupar Selectores */
+
+.form-agrupar-selectores input[type="text"],
+.form-agrupar-selectores input[type="email"],
+.form-agrupar-selectores textarea {
+  border-color: yellow;
+  border-width: 2px;
+  border-style: dashed;
+  background-color: black;
+  font-size: 20px;
+  display: block;
+  width: 300px;
+}
+
+/* 
+  El Algoritmo de CSS: Es la forma en que el navegador aplica los estilos al documento HTML. Es vital entender este concepto para que entiendas como se aplican y en algunas ocasiones se sobreescriben las reglas CSS.
+  
+    1) La Cáscada.
+    2) La Especificidad.
+    3) La Herencia.
+
+  La Cáscada es el mecanismo en que el navegador aplica los estilos. Y toma en cuenta lo siguiente en este orden:
+
+    1) El Origen del Código:
+      -El User Agent(los estilos por defeco del navegador)
+      -Personalizaciones del usuario.
+      -Los estilos del autor.
+    2) La especificidad del Selector
+    3) Orden de Aparición
+
+  La Especificidad es el peso que tiene un selector cuadno hay conflicto de estilos. Se calcula de la siguiente forma:
+
+    Etiquetas y pseudoelementos --------0,0,0,1
+    Clases,atributos y pseudoclases ----0,0,1,0
+    Identtificadores -------------------0,1,0,0
+    Estilos en línea -------------------1,0,0,0
+    !important-----------Rompe la especificidad
+
+La Herencia, es la capacidad de un selector de obtener (heredar) los valores de sus ancestros más cercanos, para aplicarla se usa el valor
+
+
+https://web.dev/learn/css/inheritance/#which-properties-are-inheritable
+*/
+blockquote#cita-marco.cita-marco {
+  background-color: lightsteelblue;
+}
+blockquote {
+  background-color: burlywood;
+}
+#cita-marco {
+  background-color: lightgreen;
+}
+blockquote.cita-marco {
+  background-color: tomato;
+}
+.cita-marco {
+  background-color: cornflowerblue;
+}
+
+.cita-marco {
+  background-color: mediumaquamarine !important;
+}
+blockquote#cita-marco {
+  background-color: lightsalmon;
+}
+
+.cita-marco {
+  background-color: darkorange !important;
+  font-size: 32px;
+  border-style: dotted;
+  border-color: red;
+}
+
+.cita-marco cite {
+  background-color: inherit;
+  font-size: initial;
+  border-style: inherit;
+  border-color: inherit;
+}
+
+/* 
+https://autoprefixer.github.io/
+https://caniuse.com/
+
+Prefijos de los navegadores 
+-webkit-user-select: none;
+-moz-user-select:none;
+-ms-user-select:none; 
+-user-select:none; 
+*/
