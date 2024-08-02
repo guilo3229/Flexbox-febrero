@@ -1,0 +1,128 @@
+.color-by-name {
+  background-color: coral;
+  color: rebeccapurple;
+  border: thick solid greenyellow;
+}
+
+/* 
+Sistema Hexadecimal (16digitos)
+0123456789ABCDEF
+
+RedGreenBlue RGB(Medios Digitales) vs CyanMagebtaYellowKey CDMK (Medios Impresos)
+
+Colores en HEX va  a ser colores de 6 dígitos
+2-primeros digitos canal rojo
+2-segundos digitos canal verde
+2-terceros digitos canal azul 
+Intensidad desde 0 hasta F
+#FF6600
+*/
+
+.color-hex {
+  background-color: #ff6600;
+  /* Si los pares son iguales se puede simplificar a #f60 solo se puede simplificar si se da en las 3 parejas que son de a 2 a la vez */
+  background-color: #f60;
+  background-color: #ff6605;
+  /* A los 6 digitos le podemos añadir otros 2 de 0 a 99 que seria de trasparente a casi opaco  digitos que marcan el nivel de opacidad */
+  background-color: #00000090;
+  /* La opacidad tambien lo podemos aplicar opacidad pero solo de 10 en 10 */
+  background-color: #0000;
+  color: #12ac78;
+  border: thick solid #ffffff;
+  border: thick solid #fff;
+  border: thick solid #ff0000;
+  border: thick solid #f00;
+  border: thick solid #000000;
+  border: thick solid #000;
+  border: thick solid #00ff00;
+  border: thick solid #0f0;
+  border: thick solid #0000ff;
+  border: thick solid #00f;
+}
+
+/* Sistema RGB
+  Acepta 8 bits por canal
+  Bit (0/1)  2^8 = 256->255 porque el primer digito que ocupa es el 0->255
+  Por cada canal de color tenemos calores que an del 0->255
+  
+  Para agregar opacidad necesitamos el canal alpha para ello usaremos el rgba que nos da un hueco mas que seria este susodicho canal va de 0 a 1 para el % dentro de estos es .50 que seria 50 %
+  */
+.color-rgb {
+  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  background-color: rgb(0, 255, 0);
+  background-color: rgb(0, 0, 0, 0.92);
+  color: rgb(255, 102, 0);
+  border: thick solid rgb(128, 109, 7);
+}
+
+/* 
+Sistema HSL
+HSL-> HueSaturationLightnes(Tono-Saturacion-Luminosidad)
+
+El primer es Hue (Círculo Cromático)
+ 0º-> red
+ 60º-> yellow
+ 120º-> green
+ 180º-> cyan
+ 240º -> blue
+ 300º -> magenta
+
+ El segundo valor es Saturation (Intensidad del color) hay que ponerlo con el valor del % despues del numero aunque sea 0%
+ 0% -> Escala de grises
+ 100% -> color puro sin grises
+
+ El tecer valor es Lightness (Luminosidad del color) si queremos que tienda hacia blanco o hacia negro
+ 0% -> negro
+ 50% -> El color puro como si fuese el maximo de ese color Rojo nomral al maximo
+ 100% ->blanco
+ 
+ Para la funcion alfa tenemos una funcion como la del rgba pero con hsla, el cuarto valor es como con el rgba va de 0 a 1 siendo 0 trasparente y 1 totalmente opaco
+ */
+
+.color-hsl {
+  background-color: hsl(0, 100%, 50%);
+  background-color: hsl(120, 100%, 50%);
+  background-color: hsl(240, 100%, 50%);
+  background-color: hsl(30, 100%, 50%);
+  background-color: hsla(30, 100%, 50%, 0.75);
+
+  color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  border: thick solid hsl(210, 75%, 65%);
+}
+/* 
+Valor transparente : color transparente es igual a aplicar rgba(0,0,0,0)
+Valor currentColor : hereda el valor por defecto o asignado de la propiedad "color"(no background-color), del ancestro que tenga definida esta propiedad,busca del ancestro mas cercano al mas alejado empezando por ella misma
+
+*/
+.color-transparent-current {
+  background-color: darkmagenta;
+  /* El valor de transparente lo vuelve trasparente */
+
+  background-color: currentColor;
+  background-color: transparent;
+  color: olive;
+  border: thick solid currentColor;
+}
+/* Opacity hace efecto en las 3 proi¡piedades color background-color , el borde y a todas las propiedades que tenga dicho selector, tambien afecta a las imagenes y supongo que a los videos tambien */
+.opacity {
+  background-color: orchid;
+  color: navy;
+  border: thick solid black;
+
+  opacity: 0.5;
+  opacity: 1;
+  opacity: 0;
+  opacity: 0.75;
+}
+
+.opacity-00 {
+  opacity: 0;
+}
+.opacity-20 {
+  opacity: 0.2;
+}
+.opacity-30 {
+  opacity: 0.3;
+}

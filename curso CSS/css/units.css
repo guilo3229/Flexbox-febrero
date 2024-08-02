@@ -1,0 +1,136 @@
+/* 
+Unidades de Medida
+  1) Absolutas (Su valor no cambia, son unidades del mundo real)
+    pc,cm,mm,in,Q
+    pt (1/72in)
+    px (1/96in)
+
+  2) Relativas (Su valor es relativo a un contexto)
+    em,rem, ex, ch - al tamaño de la fuente
+      em - basada en la anchura de la "m" de la fuente del elemento
+      rem - basada en la anchura de la "m" de la fuente del elemento raiz(html)
+      ex - Basada en la altura de la "x" de la fuente del elemento(No se usa mucho)
+      ch - basada en la anchura del "0" de la fuente del elmento(No se usa mucho)
+    % - al tamaño del contenedor
+    vw,vh,vmin, vmax - al tamaño del viewport
+      vw - ancho del viewport van de 1 a 100
+      vh - alto del viewport van de 1 a 100
+      vmax - entre vw y vh toma el que tenga mayor valor
+      vmin - entre vw y vh toma el que tenga menor valor
+
+  Conversiones entre unidades - https://pxtoem.com/
+
+
+*/
+
+html {
+  box-sizing: border-box;
+  /* font-size: 20px; */
+  background-color: black;
+}
+body {
+  background-color: blanchedalmond;
+  /* margin: 0; */
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+/* No se recomienda usar pixeles eng eneral por el responsive design el contenido tiene que ir fluyendo respecto al dispositivo que se esta usando,para imprimir si puedes usarlos */
+.pixels {
+  background-color: cadetblue;
+  width: 500px;
+  height: 400px;
+  padding: 20px;
+  font-size: 16px;
+  border: thick solid rebeccapurple;
+}
+.ems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1em 0.5em;
+  border: thick solid rebeccapurple;
+}
+.em-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5em;
+  padding: 1em;
+  /* El font-size cuando ponemos em coge de referencia al padre mas inmediato, pero el margin y padding etc cogen de referencia a su propio elemento de font-size, si no tiene nada lo cogeria igualmente solo que el font-size seria el mismo del padre */
+  font-size: 2em;
+}
+.rems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1rem 0.5rem;
+  border: thick solid rebeccapurple;
+}
+.rem-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.exs {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1ex 0.5ex;
+  border: thick solid rebeccapurple;
+}
+.ex-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5ex;
+  /* Ahora si que existen los rex como los rem respecto a los em ojo!! supongo que sera tambien respecto al html */
+  padding: 1rex;
+  font-size: 2ex;
+}
+/* Ch la anchura del "0" que es el mas ancho etc,depende del valor de font-size ya sea suyo si tiene o del ancestro inmediato superior porque los ch se usan para definir el numero de caracteres que tendre en una linea y por lo tanto se usa sobre todo en width */
+.chs {
+  background-color: cadetblue;
+  width: 10ch;
+}
+.percentages {
+  background-color: darkkhaki;
+  /* Los elementos de linea ignoran el width, a menos que los conviertas a elementos de bloque */
+  padding: 5%;
+  margin: 20% 10%;
+  width: 80%;
+  font-size: 100%;
+  /* En los porcentajes la altura esta delmintada por el contenido que hay dentro */
+  height: 100%;
+}
+
+.height-parent {
+  width: 500px;
+  height: 500px;
+  background-color: brown;
+}
+.height-child {
+  /* Aqui si que toma como referencia el tamaño del contendor , sino estan definidos pues se acomodara de tal manera */
+  width: 50%;
+  height: 50%;
+  background-color: coral;
+}
+.viewport {
+  background-color: darkcyan;
+  width: 50vw;
+  /* Recuerda que la etiqueta body tiene margenes por defecto y recuerda que las barras de scroll del navegador tambien forman parte del viewport */
+  width: 50vw;
+  width: 100%;
+  width: 100vw;
+  height: 50vh;
+  height: 100vh;
+  font-size: 5vw;
+  padding: 2vh 2vw;
+}
+
+.vmin,
+.vmax {
+  background-color: darksalmon;
+  border: thick solid cyan;
+  width: 50vmax;
+  height: 50vmin;
+}

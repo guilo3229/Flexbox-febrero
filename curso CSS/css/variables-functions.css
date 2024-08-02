@@ -1,0 +1,71 @@
+/* Las variables se tienen que definir dentro de un selector, 
+En css todas tus variables tienen que empezar con 2 guiones -- en css
+
+3-Para usar una funcion definida debemos usar la palabra var()
+
+4-Solamente vale para ese tipo de selector y para los slectores hijos que tengan,sino no funcionaria solo en este tipo de contexto(Scope).
+
+5- Si quieres que las variables existan para todos mis elementos HTML , lo que hay que hacer es declarar tus variables en la etiqueta html o en este caso en en la pseudoclase root, que hace referencia a la etiqueta html pero con mayor especificidad que esta ultima
+*/
+
+:root {
+  color: darkgreen;
+  --default-bg-color: skyblue;
+}
+
+html {
+  color: red;
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+.custom-props-1 {
+  --primary-color: gray;
+  --font-size: 32px;
+  background-color: var(--primary-color);
+}
+.custom-props-2 {
+  background-color: var(--default-bg-color);
+  border: thin solid var(--border-color);
+  padding: 1rem;
+}
+.custom-props-3 {
+  font-size: var(--font-size);
+  border: thin solid var(--border-color);
+}
+
+.title-props {
+  --primary-color: navy;
+  /* En este caso como hemos creado una variable con el mismo nombre pero en este caso solo funciona en el contexto de este selector */
+  color: var(--primary-color, orange);
+  background-color: var(--default-bg-color);
+}
+
+.ch-10 {
+  --padding-size: 3ch;
+  --num-ch: 10ch;
+  background-color: var(--default-bg-color);
+  font-size: 2rem;
+  padding: var(--padding-size);
+  /* Para que las funciones  funcionen correctamente valga la redundancia tenemos que dejar los espacios necesarios en blanco y dejando espacios entre el operador y el operando */
+  width: calc(var(--num-ch) + var(--padding-size) * 2);
+}
+
+.min-max {
+  background-color: var(--default-bg-color);
+  margin-top: 1rem;
+  /* Con la opcion min podemos decir que va a coger el valor mínimo entre los datos dados separados por 1 coma cada uno pueden ser bastantes.
+  
+  Con la opcion max podemos decir que va a coger el valor máximo entre los datos dados separados por 1 caoma cada uno, pueden ser bastantes.´
+  */
+  width: min(300px, 20vw);
+  height: max(200px, 25vh);
+}
+
+h1 {
+  /* Es decir como minimo 2 rem en el momento que pueda hara el ideal que sera el intervalo entre el minimo y el maximo luego se quedara el maximo */
+  font-size: clamp(2rem, 1rem + 3vw, 3rem);
+}
